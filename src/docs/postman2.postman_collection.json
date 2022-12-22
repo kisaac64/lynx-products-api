@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "23475b20-342b-48e0-bc31-54cd575df571",
+		"name": "Lynx Products API Documentation",
+		"description": "Lynx products api allows you to fetch available products in a simple, programmatic way using REST apis.\n\nContact Support:\n Name: 500mg support\n Email: support@500mg.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "List All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products?pageSize=5&currency=USD",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "5",
+									"description": "Number of product objects returned per page."
+								},
+								{
+									"key": "currency",
+									"value": "USD",
+									"description": "Type of currency to be used while returning products."
+								}
+							]
+						},
+						"description": "To list all licenses products from lynx, send a GET request to /products.\n\nThe response body will be a JSON object with a key of products. This will be set to an array containing objects each representing a product."
+					},
+					"response": [
+						{
+							"name": "A JSON object with a key of products.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products?pageSize=5&currency=USD",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "5"
+										},
+										{
+											"key": "currency",
+											"value": "USD"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"products\": [\n    {\n      \"id\": 60771708,\n      \"name\": \"ea Lorem ex minim\",\n      \"price\": 97842361.29622565,\n      \"description\": null,\n      \"isDeleted\": 0,\n      \"productViewed\": 44833331,\n      \"createdDate\": \"1946-05-11T07:06:46.078Z\"\n    },\n    {\n      \"id\": 52753477,\n      \"name\": \"ullamco in qui exercitation\",\n      \"price\": 26832721.590368472,\n      \"description\": null,\n      \"isDeleted\": 0,\n      \"productViewed\": 13634541,\n      \"createdDate\": \"2004-12-04T11:30:51.424Z\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Bad request.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products?pageSize=5&currency=USD",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "5"
+										},
+										{
+											"key": "currency",
+											"value": "USD"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    \"consequat et in\",\n    \"sed non exercitation eu\"\n  ]\n}"
+						},
+						{
+							"name": "Server error.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products?pageSize=5&currency=USD",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "5"
+										},
+										{
+											"key": "currency",
+											"value": "USD"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"Request cannot be processed due to server error.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6501988",
+									"description": "(Required) Id of the product to fetched."
+								}
+							]
+						},
+						"description": "To fetch an existing product, send a GET request to /products/$ID. \n\nThe response body will be a JSON object with a key of product which represents the attributes of the product."
+					},
+					"response": [
+						{
+							"name": "A JSON object with a key of product.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6501988",
+											"description": "(Required) Id of the product to fetched."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"product\": {\n    \"id\": 67928368,\n    \"name\": \"ullamco labore Lorem nisi\",\n    \"price\": 90951806.91408618,\n    \"description\": null,\n    \"isDeleted\": 0,\n    \"productViewed\": 89258848,\n    \"createdDate\": \"1998-03-19T17:37:29.046Z\"\n  }\n}"
+						},
+						{
+							"name": "Bad request.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6501988",
+											"description": "(Required) Id of the product to fetched."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    \"Duis ullamco enim\",\n    \"exercitation pari\"\n  ]\n}"
+						},
+						{
+							"name": "Not found.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6501988",
+											"description": "(Required) Id of the product to fetched."
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"Resource could not be found.\"\n}"
+						},
+						{
+							"name": "Server error.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6501988",
+											"description": "(Required) Id of the product to fetched."
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"Request cannot be processed due to server error.\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
